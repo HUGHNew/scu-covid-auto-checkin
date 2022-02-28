@@ -1,4 +1,6 @@
-people.json
+people_template.json
+LICENSE
+.gitignore
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
