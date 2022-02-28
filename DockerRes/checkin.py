@@ -78,6 +78,8 @@ def all_checkin(file:str):
     for person in data:
         global campus
         campus=person["CAMPUS"]
+        from random import randint
+        time.sleep(randint(10,100))
         if checkin({
             'eai-sess': person["EAI_SESS"],
             'UUkey': person["UUKEY"]

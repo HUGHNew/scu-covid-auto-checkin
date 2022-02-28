@@ -17,3 +17,5 @@ changlog
 未打卡 `hasFlag: '',`
 
 `hasFlag: '(\d)',`
+
+docker run:`sudo docker run --name checkin -d -v /abs/path/to/your/res:/checkin/resource --restart=on-failure:10 checkin`
