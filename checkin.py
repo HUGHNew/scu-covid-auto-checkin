@@ -10,12 +10,13 @@ import requests
 
 pat_info = re.compile('var def =(.*);!?')
 pat_fin = re.compile("hasFlag: '(\d)',")
+common_path = "/resource"
 
 campus = None
 
 def modify_json(res_json: dict) -> dict:
     # load default geo_api_info
-    with open(os.path.join('resource', f'{campus}.json'), 'r') as ifile:
+    with open(os.path.join(common_path, f'{campus}.json'), 'r') as ifile:
         res_json['geo_api_info'] = json.load(ifile)
 
     res_json['province'] = res_json['geo_api_info']['addressComponent']['province']
@@ -88,4 +89,8 @@ def all_checkin(file:str):
 
 
 if __name__ == '__main__':
-    all_checkin("resource/people.json")
+    if os.path.exists(f"{common_path}/people.json"):
+        print(datetime.datetime.now().strftime("%Y%m%d %H:%M"),end=">>>\n")
+        all_checkin(f"{common_path}/people.json")
+    else:
+        print("[ERROR] 文件不存在")
