@@ -34,7 +34,9 @@ changlog
 
 2. 点击获取位置后的定位信息可以丰富位置模板
 
-> 位置信息主要是 `geo_api_info` 这个字段下的内容
+> 位置信息主要是 `regeo` 开头的文件里面
+> ![addr](address.png)
+> 这个地址不太正常 可以参照之前的地址看 一般是拿整个response或者里面regeocode这一块
 
 ### 构建容器
 
