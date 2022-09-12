@@ -26,8 +26,15 @@ changlog
 
 > 详细见<https://github.com/koinin/scu-covid-auto-checkin/blob/master/README.md>
 
-- cookie 获取： <https://wfw.scu.edu.cn/ncov/wap/default/index> 登录后的index cookie
-- 点击获取位置后的定位信息可以丰富位置模板
+1. cookie 获取： <https://wfw.scu.edu.cn/ncov/wap/default/index> 登录后的index.html 的 cookie
+   1. 登录后按F12
+   2. 找到request header里面的 cookie 字段
+   3. 得到 `UUkey` 和 `eai-sess` 的值
+> 如图两个值 ![cookie](cookie.png)
+
+2. 点击获取位置后的定位信息可以丰富位置模板
+
+> 位置信息主要是 `geo_api_info` 这个字段下的内容
 
 ### 构建容器
 
@@ -42,5 +49,7 @@ changlog
 docker 容器构建时不会将打卡的具体信息放进去 需要通过文件挂载的方式放入文件（即更改下面的路径）
 
 docker run:`sudo docker run --name checkin -d -v /abs/path/to/your/res:/checkin/resource --restart=on-failure:10 checkin`
+
+也可以使用 `bash -x engine.sh`
 
 默认打卡时间为 0:30(CST) 支持自己提前手动打卡 打卡信息为上次提交的信息

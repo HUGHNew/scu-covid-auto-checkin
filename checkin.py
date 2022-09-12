@@ -94,3 +94,4 @@ if __name__ == '__main__':
         all_checkin(f"{common_path}/people.json")
     else:
         print("[ERROR] 文件不存在")
+    print("-------------\n") # delim for log
